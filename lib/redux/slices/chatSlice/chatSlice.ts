@@ -1,15 +1,8 @@
 /* Core */
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import { type } from 'os'
 
 /* Instruments */
 import { incrementAsync } from './thunks'
-
-/* Types */
-type Message = {
-  id: string;
-  chat: string;
-}
 
 const initialState: ChatSliceState = {
   value: [],

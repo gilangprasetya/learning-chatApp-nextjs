@@ -1,6 +1,6 @@
 /* Instruments */
 import { createAppAsyncThunk } from '@/lib/redux/createAppAsyncThunk'
-import { fetchIdentityCount } from './fetchIdentityCount'
+import { fetchGetChat } from './fetchApi'
 import { selectCount } from './selectors'
 import { chatSlice } from './chatSlice'
 import type { ReduxThunkAction } from '@/lib/redux'
@@ -11,9 +11,9 @@ import type { ReduxThunkAction } from '@/lib/redux'
 // code can then be executed and other actions can be dispatched. Thunks are
 // typically used to make async requests.
 export const incrementAsync = createAppAsyncThunk(
-  'counter/fetchIdentityCount',
+  'counter/fetchGetChat',
   async (amount: number) => {
-    const response = await fetchIdentityCount(amount)
+    const response = await fetchGetChat()
 
     // The value we return becomes the `fulfilled` action payload
     return response.data
