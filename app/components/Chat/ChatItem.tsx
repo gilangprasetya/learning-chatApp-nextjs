@@ -5,19 +5,14 @@ import { useState } from 'react'
 
 /* Instruments */
 import {
-  counterSlice,
+  chatSlice,
   useSelector,
   useDispatch,
-  selectCount,
-  incrementAsync,
-  incrementIfOddAsync,
 } from '@/lib/redux'
-import styles from './counter.module.css'
+import styles from './chat.module.css'
 
-export const Counter = () => {
+export const ChatItem = () => {
   const dispatch = useDispatch()
-  const count = useSelector(selectCount)
-  const [incrementAmount, setIncrementAmount] = useState(2)
 
   return (
     <div></div>
