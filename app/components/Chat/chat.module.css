@@ -1,3 +1,11 @@
-.card {
-  padding: 10px
+div.message {
+  width: 100%;
+  border: 1px solid #7a7878;
+  border-radius: 3px;
+  background-color: #fff;
+}
+
+div.message>p {
+  color: #121111;
+  font-size: 12em;
 }
