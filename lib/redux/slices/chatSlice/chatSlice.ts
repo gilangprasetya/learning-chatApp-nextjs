@@ -14,7 +14,7 @@ export const chatSlice = createSlice({
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
-    addChat: (state, action: PayloadAction<Message>) => {
+    add: (state, action: PayloadAction<Message>) => {
       state.value.push(action.payload)
     },
   },
@@ -27,7 +27,7 @@ export const chatSlice = createSlice({
       })
       .addCase(loadChatAsync.fulfilled, (state, action) => {
         state.status = 'idle'
-        // state.value += action.payload
+        state.value = action.payload
       })
   },
 })
