@@ -1,9 +1,9 @@
 /* Instruments */
 import { createAppAsyncThunk } from '@/lib/redux/createAppAsyncThunk'
 import { fetchLoadChat, fetchAddChat } from './fetchApi'
-import { selectChat } from './selectors'
+import { selectChats } from './selectors'
 import { chatSlice } from './chatSlice'
-import type { ReduxThunkAction } from '@/lib/redux'
+import { ReduxThunkAction } from '@/lib/redux'
 
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
@@ -35,7 +35,7 @@ export const addChatAsync = createAppAsyncThunk(
 export const incrementChatAsync =
   (message: Message): ReduxThunkAction =>
     (dispatch, getState) => {
-      const currentValue = selectChat(getState())
+      const currentValue = selectChats(getState())
 
       dispatch(chatSlice.actions.addChat(message))
     }

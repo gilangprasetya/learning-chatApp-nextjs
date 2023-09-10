@@ -1,11 +1,17 @@
-div.message {
+.message {
   width: 100%;
   border: 1px solid #7a7878;
   border-radius: 3px;
   background-color: #fff;
 }
 
-div.message>p {
+.message>p {
   color: #121111;
   font-size: 12em;
+}
+
+.list {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
 }
