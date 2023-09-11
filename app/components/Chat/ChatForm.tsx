@@ -7,6 +7,8 @@ import { useCallback, useState } from 'react'
 import {
   useDispatch,
   addChat,
+  chatSlice,
+  addChatAsync,
 } from '@/lib/redux'
 import styles from './chat.module.css'
 
@@ -17,7 +19,10 @@ export const ChatForm = () => {
 
   const send = useCallback((event: any) => {
     event.preventDefault()
-    dispatch(addChat(chat))
+    const id = Date.now().toString()
+    const message: Message = { id, chat }
+    dispatch(chatSlice.actions.add(message))
+    dispatch(addChatAsync(message))
     setChat('')
   }, [chat])
 

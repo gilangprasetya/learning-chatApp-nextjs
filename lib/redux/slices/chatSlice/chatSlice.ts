@@ -29,6 +29,10 @@ export const chatSlice = createSlice({
         state.status = 'idle'
         state.value = action.payload
       })
+      .addCase(loadChatAsync.rejected, (state, action) => {
+        state.status = 'failed'
+        state.value = []
+      })
   },
 })
 

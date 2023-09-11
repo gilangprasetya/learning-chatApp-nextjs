@@ -1,7 +1,7 @@
 'use client'
 
 /* Core */
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 /* Instruments */
 import {
