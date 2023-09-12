@@ -21,14 +21,14 @@ export const ChatForm = () => {
     event.preventDefault()
     const id = Date.now().toString()
     const message: Message = { id, chat }
-    dispatch(chatSlice.actions.add(message))
-    dispatch(addChatAsync(message))
+    dispatch(chatSlice.actions.add(message)) // add to inteface
+    dispatch(addChatAsync(message)) // add to backend
     setChat('')
   }, [chat])
 
   return (
     <form onSubmit={send}>
-      <input type="text" name="chat" onChange={event => setChat(event.target.value)} />
+      <input type="text" name="chat" value={chat} onChange={event => setChat(event.target.value)} />
       <button type="submit">send</button>
     </form>
   )
