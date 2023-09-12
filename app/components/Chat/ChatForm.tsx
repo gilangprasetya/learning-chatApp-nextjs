@@ -28,8 +28,10 @@ export const ChatForm = () => {
 
   return (
     <form onSubmit={send}>
-      <input type="text" name="chat" value={chat} onChange={event => setChat(event.target.value)} />
-      <button type="submit">send</button>
+      <div className={styles.divForm}>
+        <input className={styles.input} type="text" name="chat" value={chat} onChange={event => setChat(event.target.value)} />
+        <button className={styles.button} type="submit">send</button>
+      </div>
     </form>
   )
 }
