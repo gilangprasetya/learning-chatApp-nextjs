@@ -1,6 +1,6 @@
 'use client'
 
-import { useRouter } from "next/router"
+import { useRouter } from 'next/navigation'
 import { useState } from "react"
 
 export const Login = () => {
@@ -12,6 +12,7 @@ export const Login = () => {
 
     const submit = async (event: any) => {
         event.preventDefault()
+        
         try {
             const response = await fetch('http://localhost:3000/api/users/auth', {
                 method: 'POST',
@@ -22,9 +23,9 @@ export const Login = () => {
             })
             if (response.ok) {
                 const data = await response.json()
-                console.log(data)
                 localStorage.setItem('user', JSON.stringify(data))
-                push('/chats')
+                push('/chat')
+                window.location.reload()
             }
         } catch (error) {
             console.error('Login error', error)
