@@ -23,6 +23,11 @@
   flex-direction: column;
 }
 
+.allChat {
+  display: flex;
+  flex-direction: row;
+}
+
 .input {
   width: calc(100% - 80px);
   padding: 12px 20px;

@@ -19,8 +19,8 @@ export const ChatForm = () => {
 
   const send = useCallback((event: any) => {
     event.preventDefault()
-    const id = Date.now().toString()
-    const message: Message = { id, chat }
+    const _id = Date.now().toString()
+    const message: Message = { _id, chat }
     dispatch(chatSlice.actions.add(message)) // add to inteface
     dispatch(addChatAsync(message)) // add to backend
     setChat('')

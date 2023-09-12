@@ -35,8 +35,8 @@ export const addChat =
   (chat: string): ReduxThunkAction =>
     (dispatch, getState) => {
 
-      const id = Date.now().toString()
-      const message: Message = { id, chat }
+      const _id = Date.now().toString()
+      const message: Message = { _id, chat }
       dispatch(chatSlice.actions.add(message))
       // dispatch(addChatAsync(message))
 

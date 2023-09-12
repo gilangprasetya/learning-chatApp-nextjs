@@ -14,11 +14,11 @@ export async function GET(req: Request, res: Response) {
 
 export async function POST(req: Request, res: Response) {
   const body = await req.json()
-  const { id = '0', chat = '' } = body
+  const { _id = '0', chat = '' } = body
 
-  // chatList.push({ id, chat })
+  // chatList.push({ _id, chat })
   // simulate IO latency
   await new Promise((r) => setTimeout(r, 500))
 
-  return NextResponse.json({ id, chat })
+  return NextResponse.json({ _id, chat })
 }

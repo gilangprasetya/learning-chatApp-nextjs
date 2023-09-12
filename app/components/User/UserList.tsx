@@ -2,12 +2,14 @@
 
 /* Core */
 import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 
-import styles from './chat.module.css'
+import styles from './user.module.css'
 import { UserItem } from './UserItem'
 
-export const ChatList = () => {
+export const UserList = () => {
 
+    const dispatch = useDispatch()
     const [users, setUsers] = useState([] as UserData[])
 
     useEffect(() => {

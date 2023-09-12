@@ -1,7 +1,7 @@
 /** types */
 
 declare type Message = {
-    id: string;
+    _id: string;
     chat: string;
 }
 
