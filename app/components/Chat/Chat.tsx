@@ -21,7 +21,7 @@ export const Chat = () => {
   } else {
     return (
       <div className={styles.allChat}>
-        <div>
+        <div className={styles.kiri}>
           <UserList />
         </div>
         <div className={styles.chatBox}>
