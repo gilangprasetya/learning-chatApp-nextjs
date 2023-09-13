@@ -17,10 +17,6 @@ export const ChatList = () => {
   const dispatch = useDispatch()
   const chats = useSelector(selectChats)
 
-  useEffect(() => {
-    dispatch(loadChatAsync())
-  }, [])
-
   return (
     <div className={styles.list}>
       {chats.map(item => <ChatItem key={item._id} message={item} />)}

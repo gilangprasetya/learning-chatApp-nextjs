@@ -1,10 +1,17 @@
-.message {
-  padding: 20px;
+.messageLeft{
+  padding: 5px;
   margin: 10px;
-  width: 600px;
   border: 1px solid #7a7878;
   border-radius: 3px;
   background-color: #fff;
+}
+
+.messageRight{
+  padding: 5px;
+  margin: 10px;
+  border: 1px solid #7a7878;
+  border-radius: 3px;
+  background-color: #b8b8b8;
 }
 
 .message>p {
@@ -14,7 +21,7 @@
 
 .list {
   display: flex;
-  width: 100%;
+  width: 600px;
   flex-direction: column;
 }
 

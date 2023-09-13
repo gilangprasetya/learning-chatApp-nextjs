@@ -6,30 +6,32 @@ import { useCallback, useState } from 'react'
 /* Instruments */
 import {
   useDispatch,
-  addChat,
   chatSlice,
   addChatAsync,
+  selectReceiver,
+  useSelector
 } from '@/lib/redux'
 import styles from './chat.module.css'
 
 export const ChatForm = () => {
+  const user = JSON.parse(localStorage.getItem('user') || 'null')
+  const receiver = useSelector(selectReceiver)
   const dispatch = useDispatch()
-
-  const [chat, setChat] = useState('')
+  const [content, setContent] = useState('')
 
   const send = useCallback((event: any) => {
     event.preventDefault()
     const _id = Date.now().toString()
-    const message: Message = { _id, chat }
+    const message: Message = { _id, content, sender: user.username, receiver }
     dispatch(chatSlice.actions.add(message)) // add to inteface
     dispatch(addChatAsync(message)) // add to backend
-    setChat('')
-  }, [chat])
+    setContent('')
+  }, [content])
 
   return (
     <form onSubmit={send}>
       <div className={styles.divForm}>
-        <input className={styles.input} type="text" name="chat" value={chat} onChange={event => setChat(event.target.value)} />
+        <input className={styles.input} type="text" name="chat" value={content} onChange={event => setContent(event.target.value)} />
         <button className={styles.button} type="submit">send</button>
       </div>
     </form>

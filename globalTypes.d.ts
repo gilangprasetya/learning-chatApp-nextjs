@@ -2,7 +2,9 @@
 
 declare type Message = {
     _id: string;
-    chat: string;
+    content: string;
+    sender: string;
+    receiver: string;
 }
 
 declare type UserData = {

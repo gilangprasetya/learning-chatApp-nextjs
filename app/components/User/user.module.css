@@ -10,17 +10,15 @@
 .user {
   cursor: pointer;
   background-color: #ccc;
-  padding: 1px;
+  padding: 3px;
   margin: 1px;
-  width: 80px;
   border: 1px solid #7a7878;
 }
 
 .userSelected {
   background-color: rgb(163, 163, 3);
-  padding: 1px;
+  padding: 3px;
   margin: 1px;
-  width: 80px;
   border: 1px solid #7a7878;
 }
 

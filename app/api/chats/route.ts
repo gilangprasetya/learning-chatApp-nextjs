@@ -1,24 +1,39 @@
 /* Core */
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 
 import connectDB from '@/db'
 import Chat from '@/models/Chat'
 
-export async function GET(req: Request, res: Response) {
+connectDB()
 
-  // simulate IO latency
-  await new Promise((r) => setTimeout(r, 500))
-
-  return NextResponse.json({ data: [] })
+export async function GET(req: NextRequest, res: Response) {
+  try {
+    const sender = req.nextUrl.searchParams.get('sender')
+    const receiver = req.nextUrl.searchParams.get('receiver')
+    const chats = await Chat.find({
+      $or: [{
+        sender: sender, receiver: receiver
+      }, {
+        sender: receiver, receiver: sender
+      }]
+    }).sort({ createdAt: 1 })
+    return NextResponse.json({ data: chats })
+  } catch (error) {
+    return NextResponse.json({ data: error })
+  }
 }
 
 export async function POST(req: Request, res: Response) {
-  const body = await req.json()
-  const { _id = '0', chat = '' } = body
+  try {
+    const body = await req.json()
+    const { content, sender, receiver } = body
 
-  // chatList.push({ _id, chat })
-  // simulate IO latency
-  await new Promise((r) => setTimeout(r, 500))
+    const chat = new Chat({ content, sender, receiver })
 
-  return NextResponse.json({ _id, chat })
+    await chat.save()
+
+    return NextResponse.json({ chat })
+  } catch (error) {
+    return NextResponse.json({ data: error })
+  }
 }
