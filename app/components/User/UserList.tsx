@@ -10,6 +10,7 @@ import { UserItem } from './UserItem'
 export const UserList = () => {
 
     const dispatch = useDispatch()
+    const user = JSON.parse(localStorage.getItem('user') || 'null')
     const [users, setUsers] = useState([] as UserData[])
 
     useEffect(() => {
@@ -32,7 +33,7 @@ export const UserList = () => {
 
     return (
         <div className={styles.list}>
-            {users.map(item => <UserItem key={item._id} username={item.username} />)}
+            {users.filter(item => item.username !== user.username).map(item => <UserItem key={item._id} username={item.username} />)}
         </div>
     )
 }
