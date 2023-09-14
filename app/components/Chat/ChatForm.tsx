@@ -1,7 +1,7 @@
 'use client'
 
 /* Core */
-import { useCallback, useState } from 'react'
+import { useCallback, useContext, useState } from 'react'
 
 /* Instruments */
 import {
@@ -12,8 +12,10 @@ import {
   useSelector
 } from '@/lib/redux'
 import styles from './chat.module.css'
+import { SocketContext } from './Chat'
 
 export const ChatForm = () => {
+  const socket = useContext(SocketContext)
   const user = JSON.parse(localStorage.getItem('user') || 'null')
   const receiver = useSelector(selectReceiver)
   const dispatch = useDispatch()
@@ -25,6 +27,7 @@ export const ChatForm = () => {
     const message: Message = { _id, content, sender: user.username, receiver }
     dispatch(chatSlice.actions.add(message)) // add to inteface
     dispatch(addChatAsync(message)) // add to backend
+    socket.emit('message', `${user.username}-${receiver}`, user.username, receiver)
     setContent('')
   }, [content])
 
