@@ -1,9 +1,8 @@
 .messageLeft {
   padding: 10px;
   margin: 10px;
-  border: 1px solid #a5a3a3;
   border-radius: 7px;
-  background-color: #fff;
+  background-color: #c2c2c2;
 }
 
 .messageRight {
@@ -17,18 +16,16 @@
   color: #121111;
 }
 
-.kiri {
-  width: 30%;
-}
-
 .list {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 }
 
 .chatBox {
   display: flex;
   flex-direction: column;
+  width: 70%;
 }
 
 .allChat {
