@@ -12,8 +12,8 @@
   background-color: #8ee98b;
 }
 
-.message>text {
-  color: #121111;
+.msgContent {
+  color: black;
 }
 
 .list {
